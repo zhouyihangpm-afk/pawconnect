@@ -13,6 +13,9 @@
 
 * { box-sizing: border-box; }
 
+/* Elements with the hidden attribute stay hidden even if a class sets display. */
+[hidden] { display: none !important; }
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
