@@ -1,12 +1,37 @@
 // PPAP-27 D01 / PPAP-28 D02: application form that identifies the selected pet.
-// Validation, privacy notice and submitting are later stories (D03, A04, D04).
+// PPAP-30 D04: submit through rpc('submit_application'), then go to the confirmation page.
+// Validation and privacy notice are later stories (D03, A04).
 import { supabase } from './supabase.js';
 
 const statusEl = document.getElementById('status');
 const petId = new URLSearchParams(location.search).get('pet');
 
-// Nothing is saved yet, so stop the browser from submitting the form (e.g. on Enter).
-document.getElementById('application-form').addEventListener('submit', (e) => e.preventDefault());
+const form = document.getElementById('application-form');
+const submitButton = document.getElementById('submit-button');
+const errorEl = document.getElementById('submit-error');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  errorEl.hidden = true;
+  submitButton.disabled = true;
+
+  const { data: applicationId, error } = await supabase.rpc('submit_application', {
+    p_pet_id: petId,
+    p_name: form.elements.name.value,
+    p_contact: form.elements.contact.value,
+    p_reason: form.elements.reason.value,
+  });
+
+  if (error || !applicationId) {
+    console.warn('Application not submitted:', error);
+    errorEl.textContent = 'Sorry, your application could not be submitted. Please check your details and try again.';
+    errorEl.hidden = false;
+    submitButton.disabled = false;
+    return;
+  }
+
+  location.href = `confirm.html?id=${encodeURIComponent(applicationId)}`;
+});
 
 if (!petId) {
   statusEl.textContent = 'No pet selected. Please choose a pet from the listing.';

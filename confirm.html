@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PawConnect – Application Submitted</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/nav.js"></script>
+  <script type="module" src="js/confirm.js"></script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main>
+    <p id="status" class="muted">Loading your application…</p>
+
+    <!-- PPAP-30 D04 -->
+    <section id="confirmation" hidden>
+      <h1>Application submitted</h1>
+      <p>Thank you. Your application to adopt <strong id="pet-name"></strong> has been saved.</p>
+      <p class="selected-pet">Your application reference number is
+        <strong id="application-id"></strong>.<br>
+        Status: <strong id="application-status"></strong></p>
+      <p>Please keep this reference number.</p>
+      <p><a href="pets.html">Back to available pets</a></p>
+    </section>
+  </main>
+</body>
+</html>
