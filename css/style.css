@@ -1,0 +1,174 @@
+/* PawConnect shared styles. Keep simple; used by every page. */
+:root {
+  --brand: #2f6f5e;
+  --brand-dark: #24574a;
+  --text: #222;
+  --muted: #666;
+  --border: #ddd;
+  --bg: #fafaf7;
+  --card: #fff;
+  --planned: #8a5a00;
+  --planned-bg: #fff4dc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--brand); }
+
+/* Header navigation (built by js/nav.js) */
+.site-header {
+  background: var(--brand);
+  color: #fff;
+}
+.site-header .inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.site-header .logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+.site-header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 16px;
+}
+.site-header nav a:first-child { margin-left: 0; }
+.site-header nav a:hover,
+.site-header nav a[aria-current="page"] { text-decoration: underline; }
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 { margin-top: 0; }
+
+.muted { color: var(--muted); }
+
+/* Buttons */
+.button {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover { background: var(--brand-dark); }
+
+/* Home */
+.hero {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.steps {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.steps li {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+.steps h3 { margin: 0 0 8px; }
+.badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  background: #e3f1ec;
+  color: var(--brand-dark);
+}
+.badge.planned {
+  background: var(--planned-bg);
+  color: var(--planned);
+}
+
+/* Pet listing */
+.pet-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.pet-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+.pet-card:hover { border-color: var(--brand); }
+.pet-card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.pet-card h2 { font-size: 1.1rem; margin: 0; padding: 12px; }
+
+/* Pet profile */
+.pet-profile {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: start;
+}
+.pet-profile img { width: 100%; border-radius: 8px; }
+.facts { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; }
+.facts dt { font-weight: 600; }
+.facts dd { margin: 0; }
+
+/* Forms */
+.form { max-width: 560px; }
+.form label { display: block; font-weight: 600; margin: 16px 0 4px; }
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  font: inherit;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.form textarea { min-height: 120px; resize: vertical; }
+
+.selected-pet {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.message {
+  padding: 12px 16px;
+  border-radius: 6px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PawConnect – Adoption Application</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/nav.js"></script>
+  <script type="module" src="js/apply.js"></script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main>
+    <h1>Adoption application</h1>
+    <p id="status" class="muted">Loading pet…</p>
+
+    <div id="application" hidden>
+      <p class="selected-pet">Applying to adopt: <strong id="pet-name"></strong>
+        (<span id="pet-summary"></span>, ID <span id="pet-id"></span>)
+        – <a id="pet-link" href="#">view profile</a></p>
+
+      <form id="application-form" class="form">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" autocomplete="name">
+
+        <label for="contact">Contact details (email or phone)</label>
+        <input id="contact" name="contact" type="text" autocomplete="email">
+
+        <label for="reason">Why do you want to adopt this pet?</label>
+        <textarea id="reason" name="reason"></textarea>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PawConnect – Pet Profile</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/nav.js"></script>
+  <script type="module" src="js/pet.js"></script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main>
+    <p><a href="pets.html">&larr; Back to available pets</a></p>
+    <p id="status" class="muted">Loading pet…</p>
+    <article id="pet" class="pet-profile" hidden>
+      <img id="pet-photo" src="" alt="">
+      <div>
+        <h1 id="pet-name"></h1>
+        <dl class="facts">
+          <dt>Age</dt><dd id="pet-age"></dd>
+          <dt>Animal type</dt><dd id="pet-type"></dd>
+          <dt>Breed</dt><dd id="pet-breed"></dd>
+        </dl>
+        <p id="pet-description"></p>
+        <a id="apply-button" class="button" href="#" hidden>Apply to Adopt</a>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
