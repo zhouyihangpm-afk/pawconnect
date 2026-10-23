@@ -1,4 +1,5 @@
 // PPAP-22 C02: basic profile of the selected pet.
+// PPAP-23 C03: temperament and adoption requirements.
 // PPAP-27 D01: "Apply to Adopt" button for Available pets only.
 import { supabase } from './supabase.js';
 
@@ -10,7 +11,7 @@ if (!petId) {
 } else {
   const { data: pet, error } = await supabase
     .from('pets')
-    .select('pet_id, name, animal_type, breed, age, photo, description, availability')
+    .select('pet_id, name, animal_type, breed, age, photo, description, temperament, adoption_requirements, availability')
     .eq('pet_id', petId)
     .maybeSingle();
 
@@ -29,6 +30,8 @@ if (!petId) {
     document.getElementById('pet-type').textContent = pet.animal_type;
     document.getElementById('pet-breed').textContent = pet.breed || 'Unknown';
     document.getElementById('pet-description').textContent = pet.description || '';
+    document.getElementById('pet-temperament').textContent = pet.temperament?.trim() || 'Not provided';
+    document.getElementById('pet-requirements').textContent = pet.adoption_requirements?.trim() || 'Not provided';
 
     if (pet.availability === 'Available') {
       const apply = document.getElementById('apply-button');
