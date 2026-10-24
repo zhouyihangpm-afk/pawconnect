@@ -13,6 +13,28 @@ const errorEl = document.getElementById('submit-error');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   errorEl.hidden = true;
+
+  const missingFields = [];
+
+  if (!form.elements.name.value.trim()) {
+    missingFields.push('Your name');
+  }
+
+  if (!form.elements.contact.value.trim()) {
+    missingFields.push('Contact details');
+  }
+
+  if (!form.elements.reason.value.trim()) {
+    missingFields.push('Reason for adopting');
+  }
+
+  if (missingFields.length > 0) {
+    errorEl.textContent =
+      `Please complete the following required fields: ${missingFields.join(', ')}.`;
+    errorEl.hidden = false;
+    return;
+  }
+
   submitButton.disabled = true;
 
   const { data: applicationId, error } = await supabase.rpc('submit_application', {
