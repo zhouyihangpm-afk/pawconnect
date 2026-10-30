@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PawConnect – Staff Application Detail</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/nav.js"></script>
+  <script type="module" src="js/staff-app.js"></script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main>
+    <p><a href="staff.html">&larr; Back to all applications</a></p>
+    <p id="status" class="muted">Loading application…</p>
+
+    <!-- PPAP-14 E04 -->
+    <section id="application" hidden>
+      <h1>Application <span id="app-id"></span></h1>
+      <dl class="facts">
+        <dt>Reference</dt><dd id="app-ref"></dd>
+        <dt>Status</dt><dd id="app-status"></dd>
+        <dt>Submitted</dt><dd id="app-submitted"></dd>
+        <dt>Applicant name</dt><dd id="app-name"></dd>
+        <dt>Contact details</dt><dd id="app-contact"></dd>
+        <dt>Reason</dt><dd id="app-reason"></dd>
+      </dl>
+      <h2>Associated pet</h2>
+      <dl class="facts">
+        <dt>Pet name</dt><dd id="pet-name"></dd>
+        <dt>Pet ID</dt><dd id="pet-id"></dd>
+      </dl>
+    </section>
+  </main>
+</body>
+</html>
