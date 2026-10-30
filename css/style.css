@@ -222,3 +222,4 @@ h1 { margin-top: 0; }
   border: 1px solid var(--border);
   border-radius: 6px;
 }
+.filters { margin-bottom: 12px; }

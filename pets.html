@@ -12,6 +12,17 @@
   <header id="site-header"></header>
   <main>
     <h1>Available pets</h1>
+    <!-- PPAP-24 C04 -->
+    <form id="filter-form" class="inline-form filters">
+      <label for="type-filter">Animal type</label>
+      <select id="type-filter" name="type">
+        <option value="">All</option>
+        <option>Dog</option>
+        <option>Cat</option>
+        <option>Rabbit</option>
+        <option>Other</option>
+      </select>
+    </form>
     <p id="status" class="muted">Loading pets…</p>
     <div id="pet-list" class="pet-grid"></div>
   </main>
