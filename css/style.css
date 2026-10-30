@@ -246,3 +246,13 @@ h1 { margin-top: 0; }
 .status-badge[data-status="Under Review"] { background: #e2ecfb; color: #1d4f91; }
 .status-badge[data-status="Approved"] { background: #e3f1ec; color: var(--brand-dark); }
 .status-badge[data-status="Rejected"] { background: #fdf0f0; color: #8a1f1f; }
+.status-guide h2 { margin-top: 0; font-size: 1.2rem; }
+.status-guide ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.status-guide li {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.status-guide li .status-badge { font-size: 0.85rem; margin-right: 6px; }
+.status-guide li.current { border: 2px solid var(--brand); background: #f3faf7; }
