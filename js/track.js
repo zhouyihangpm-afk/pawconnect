@@ -3,6 +3,8 @@
 // PPAP-7 B02: show the current status as saved in the database. Every search calls the
 // database again (nothing is cached), so a status changed by staff shows on the next search.
 // PPAP-8 B03: highlight the explanation that matches the current status.
+// PPAP-9 B04: unknown or badly formatted references show "Application not found" and clear
+// any previous result; the user can correct the reference and search again on the same page.
 import { supabase } from './supabase.js';
 
 const form = document.getElementById('track-form');
@@ -15,11 +17,26 @@ function showMessage(text) {
   messageEl.hidden = false;
 }
 
+function clearResult() {
+  resultEl.hidden = true;
+  for (const li of document.querySelectorAll('#status-explanations li')) li.classList.remove('current');
+}
+
+function showNotFound() {
+  messageEl.className = 'message error';
+  showMessage('Application not found. Please check your reference (for example APP-1001) and try again.');
+}
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   messageEl.hidden = true;
+  messageEl.className = 'message';
+  clearResult();
   const reference = form.elements.reference.value.trim();
-  if (!reference) return;
+  if (!/^APP-\d+$/i.test(reference)) {
+    showNotFound();
+    return;
+  }
 
   searchButton.disabled = true;
   const { data, error } = await supabase.rpc('track_application', { p_application_id: reference });
@@ -31,7 +48,11 @@ form.addEventListener('submit', async (e) => {
     showMessage('Sorry, the search could not be completed. Please try again later.');
     return;
   }
-  if (!application) return;
+  if (!application) {
+    showNotFound();
+    form.elements.reference.focus();
+    return;
+  }
 
   document.getElementById('result-ref').textContent = application.application_id;
   document.getElementById('result-ref-value').textContent = application.application_id;
