@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PawConnect – Staff Applications</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/nav.js"></script>
+  <script type="module" src="js/staff.js"></script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main>
+    <h1>Staff: adoption applications</h1>
+    <p id="status" class="muted">Checking sign-in…</p>
+
+    <!-- PPAP-13 E03: staff must sign in before any application data is loaded -->
+    <form id="signin-form" class="form" hidden>
+      <label for="email">Staff email</label>
+      <input id="email" name="email" type="email" autocomplete="username" required>
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required>
+      <p id="signin-error" class="message error" role="alert" hidden></p>
+      <p><button id="signin-button" class="button" type="submit">Sign in</button></p>
+    </form>
+
+    <section id="staff-area" hidden>
+      <p class="staff-bar">Signed in as <strong id="staff-email"></strong>
+        <button id="signout-button" class="button secondary" type="button">Sign out</button></p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Reference</th><th>Pet</th><th>Status</th><th>Submitted</th></tr>
+        </thead>
+        <tbody id="application-rows"></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

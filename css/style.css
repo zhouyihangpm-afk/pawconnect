@@ -175,3 +175,34 @@ h1 { margin-top: 0; }
   background: var(--card);
   border: 1px solid var(--border);
 }
+
+.message.error {
+  border-color: #e3b4b4;
+  background: #fdf0f0;
+  color: #8a1f1f;
+}
+
+.button.secondary {
+  background: var(--card);
+  color: var(--brand);
+  border: 1px solid var(--brand);
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  margin-left: 8px;
+}
+.button.secondary:hover { background: #e3f1ec; }
+
+/* Staff tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+.data-table th,
+.data-table td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.data-table th { background: #f0f4f2; }
