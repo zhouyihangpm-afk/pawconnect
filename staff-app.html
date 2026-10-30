@@ -30,6 +30,20 @@
         <dt>Pet name</dt><dd id="pet-name"></dd>
         <dt>Pet ID</dt><dd id="pet-id"></dd>
       </dl>
+
+      <!-- PPAP-15 E05 -->
+      <h2>Update status</h2>
+      <form id="status-form" class="inline-form">
+        <label for="new-status">New status</label>
+        <select id="new-status" name="status">
+          <option>Pending</option>
+          <option>Under Review</option>
+          <option>Approved</option>
+          <option>Rejected</option>
+        </select>
+        <button id="save-button" class="button" type="submit">Save status</button>
+      </form>
+      <p id="save-message" class="message" role="status" hidden></p>
     </section>
   </main>
 </body>
