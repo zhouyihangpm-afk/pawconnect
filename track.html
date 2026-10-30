@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PawConnect – Track Application</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/nav.js"></script>
+  <script type="module" src="js/track.js"></script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main>
+    <h1>Track your application</h1>
+    <div class="track-layout">
+      <div>
+        <!-- PPAP-6 B01 -->
+        <form id="track-form" class="inline-form">
+          <label for="reference">Application reference</label>
+          <input id="reference" name="reference" type="text" placeholder="e.g. APP-1001" autocomplete="off">
+          <button id="search-button" class="button" type="submit">Search</button>
+        </form>
+        <p id="search-message" class="message" role="status" hidden></p>
+
+        <section id="result" class="selected-pet result" hidden>
+          <h2>Application <span id="result-ref"></span></h2>
+          <dl class="facts">
+            <dt>Reference</dt><dd id="result-ref-value"></dd>
+            <dt>Pet</dt><dd id="result-pet"></dd>
+            <dt>Submitted</dt><dd id="result-submitted"></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

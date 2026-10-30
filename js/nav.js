@@ -4,6 +4,7 @@ const links = [
   { href: 'index.html', label: 'Home' },
   { href: 'pets.html', label: 'Browse Pets' },
   { href: 'index.html#guide', label: 'How Adoption Works' },
+  { href: 'track.html', label: 'Track application' },
 ];
 
 const header = document.getElementById('site-header');
